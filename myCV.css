@@ -8,6 +8,7 @@
 }
 :root{
     scroll-behavior: smooth;
+    scroll-padding: 30px;
     font-family:'Times New Roman', Times, serif;
     --dvw:100%;
 }
@@ -156,8 +157,8 @@
     color: #eee;
 }
 .main-container h2{
-    margin: 20px 0;
-    font-size:20px;
+    margin: 20px 0 10px;
+    font-size:25px;
 }
 .main-container h3{
     margin: 10px 0;
@@ -220,11 +221,11 @@
     box-shadow:1px 1px 5px #33ffff,0 0 5px #66ffff;
 }
 /* WORK EXPERIENCE */
-.work-exp .job{
+.work-exp .job,.education {
     display: flex;
     align-items: center;
 }
-.work-exp .job .time-exp {
+.work-exp .job .time-exp,.education .time-exp {
     flex:40%;
     font-size: 25px;
     font-weight: 600;
@@ -235,16 +236,16 @@
     border-top: solid 2px #fff;
     border-left: solid 2px #fff;
 }
-.work-exp .job .major-duties h3{
-    font-size: 25px;
+.work-exp .job .major-duties h3,.project h3,.education .major-duties h3{
+    font-size: 20px;
     color: cyan;
     margin: 0;
 }
-.work-exp .job .major-duties  span{
+.work-exp .job .major-duties  span,.education .major-duties span{
     color:#777;
     font-size: 18px;
 }
-.work-exp .job .major-duties{
+.work-exp .job .major-duties,.education .major-duties{
     padding: 0 20px;
     flex: 60%;
 }
@@ -265,10 +266,7 @@
     height:100%;
     object-fit:cover;
     border-radius: 5px;
-    transition: transform 0.5s ease ;
-}
-.hobbies .hobbie-img img:hover{
-    transform: rotate(25deg);
+    transition: transform 0.5s linear;
 }
 .hobbies .hobbie-img span{
     position: absolute;
@@ -291,4 +289,109 @@
     background: #000;
     color: #fff;
     opacity: 1;
+}
+
+/* PROJECT */
+.mypoject{
+    position: relative;
+    display: block;
+    cursor: pointer;
+}
+.mypoject img{
+    display: block;
+    width: 100%;
+    height: auto;
+    border:1px solid #fff;
+}
+.mypoject span{
+    display: inline-block;
+    font-size: 30px;
+    font-weight: 600;
+    position: absolute;
+    top:50%;
+    left: 20%;
+    transform: translate(-50%,-50%);
+    color: #fff;
+    visibility: hidden;
+}
+.mypoject:hover img{
+    opacity: 0.4;
+}.mypoject:hover span:hover{
+    letter-spacing: 5px;
+    transition: all 0.3s linear;
+}
+.mypoject:hover span{
+    animation: view_project 0.3s ease-in forwards;
+}
+@keyframes view_project {
+    0%{visibility: hidden;left: 20%;}
+    100%{visibility: visible;left: 50%;}
+}
+
+/* CONTACT */
+.contact{
+    padding-bottom: 50px;
+}
+.contact-me{
+    display:flex;
+}
+.contact-me .left-contact{
+    flex:50%;
+}
+.contact-me .left-contact ul li{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.contact-me .left-contact ul li div:nth-child(1){
+    font-size:50px;
+    color:#ddd;
+    text-align: center;
+    flex:30%;
+}
+.contact-me .left-contact ul li div:nth-child(2){
+    margin:0;
+    flex:70%;
+}
+.contact-me .left-contact ul li div:nth-child(2) h3{
+    font-size:20px;
+    margin:0;
+}
+.contact-me .left-contact ul li:hover p{
+    color:cyan;
+}
+.contact-me .left-contact ul li:hover p,.contact-me .left-contact ul li:hover i{
+    color:cyan;
+}
+.contact-me .social-link{
+    flex:50%;
+    display: flex;
+    flex-direction:column ;
+    justify-content: flex-start;
+}
+.contact-me .social-link div{
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+    color:cyan;
+    margin:10px 0;
+}
+.contact-me .social-link div i{
+    font-size:35px;
+    color:#ddd;
+    padding:0 20px;
+}
+.contact-me .social-link div i:hover{
+    color:cyan;
+}
+
+/* FOOTER */
+footer{
+    height:50px;
+    border-top:solid 0.5px #ddd;
+    text-align: center;
+}
+footer p{
+    line-height: 50px;
 }
