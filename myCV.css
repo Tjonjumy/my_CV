@@ -1,0 +1,293 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+:root{
+    scroll-behavior: smooth;
+    font-family:'Times New Roman', Times, serif;
+    --dvw:100%;
+}
+/* INTRO */
+.intro{
+    position: absolute;
+    width:0%;
+    height: 100vh;
+    top:0;
+    transform-origin: top;
+    /* animation: intro 1s ease-in forwards; */
+}
+.intro1{
+    background-color:green;
+    animation-delay: 1s;
+}
+.intro2{
+    background-color: cyan;
+    animation-delay: 0.5s;
+}
+.intro3{
+    background-color:black;
+}
+@keyframes intro{
+    0%{transform:scaleY(1);}
+    100%{transform: scaleY(0);}
+}
+/* SLIDERBAR MENU*/
+
+.slidebar{
+    width: 200px;
+    height: 100vh;
+    position: fixed;
+    top:0;
+    left: 0px;
+    background:#333;
+    /* animation: slide 0.5s linear 2s both; */
+}
+@keyframes slide{
+    0%{left:-200px;}
+    100%{left:0px;}
+}
+.slidebar .avatar img{
+    display: block;
+    width:200px;
+    height:auto;
+}
+.slidebar-menu ul li a{
+    position: relative;
+    display: block;
+    color:#fff;
+    text-align: center;
+    font-size: 20px;
+    letter-spacing: 3px;
+    padding: 15px;
+}
+.slidebar-menu ul li a::before{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    position: absolute;
+    bottom: 0;
+    right: 100%;
+    transition: right 0.3s ease-in;
+    z-index: -1;
+}
+.slidebar-menu ul li a:hover{
+    color:cyan;
+}
+.slidebar-menu ul li a:hover::before{
+    right: 0;
+}
+
+/* SCROLL TO TOP */
+.to-top{
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    text-align: center;
+    border:1px solid #000;
+    width: 72px;
+    height: 72px;
+    border-radius:50%;
+    background-color:#fff;
+    opacity: 0.6;
+}
+.to-top::after{
+    content: "Scroll To Top";
+    color: blue;
+    position: absolute;
+    top:-30%;
+    right:90%;
+    display: block;
+    width: 150%;
+    padding: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border: 1px solid #000;
+    color: #000;
+    background-color: #fff;
+    display: none;
+}
+.to-top:hover{
+    opacity: 1;
+}
+.to-top:hover::after{
+    display: block;
+}
+.to-top .circTxt {
+    /*allows for centering*/
+    display: inline-block;
+    /*adjust as needed*/
+    margin-bottom: 70px;
+  }
+.to-top .circTxt p{
+    background:;
+    color: #000;
+    font-size: 10px;
+  }
+.to-top .circle-inner{
+    position: absolute;
+    background:#000;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 45px;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #fff;
+}
+.to-top:hover .circle-inner{
+    color:red;
+}
+
+/* MAIN CONTENT */
+.main-container{
+    background: #000;
+    margin: 0;
+    padding:20px 80px 0 280px;
+    width: 100%;
+    color: #eee;
+}
+.main-container h2{
+    margin: 20px 0;
+    font-size:20px;
+}
+.main-container h3{
+    margin: 10px 0;
+}
+.content p,h3{
+    font-size: 18px;
+    line-height: 25px;
+}
+/* SHOW AVATAR */
+
+
+/* ABOUT ME */
+.about-me p{
+    padding: 10px 0;
+}
+.about-me .skill{
+    display: block;
+    width: 100%;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+.about-me .skill::after{
+    display: block;
+    content: "";
+    height: 100%;
+    border-radius: 10px;
+    background:linear-gradient(to right,cyan,lightblue);
+}
+.about-me .html::after,.css::after,.js::after{
+    width: 50%;
+}
+.about-me .js::after{
+    width: 60%;
+}
+.about-me .ai::after{
+    width: 30%;
+}
+.about-me .download-cv{
+    display: block;
+    margin:20px;
+    float:right ;
+}
+.about-me .download-cv button{
+    height: 30px;
+    padding: 0 20px;
+    border-radius: 20px;
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    color: #fff;
+    background-color: #000;
+    border: 1px solid #fff;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2),-2px -2px 5px rgba(0, 0, 0, 0.2);
+}
+.about-me .download-cv button:hover{
+    color:cyan;
+    box-shadow:1px 1px 5px #33ffff,0 0 5px #66ffff;
+}
+/* WORK EXPERIENCE */
+.work-exp .job{
+    display: flex;
+    align-items: center;
+}
+.work-exp .job .time-exp {
+    flex:40%;
+    font-size: 25px;
+    font-weight: 600;
+    padding: 30px;
+    text-align: center;
+    margin: 10px 0;
+    border-bottom: solid 2px #fff;
+    border-top: solid 2px #fff;
+    border-left: solid 2px #fff;
+}
+.work-exp .job .major-duties h3{
+    font-size: 25px;
+    color: cyan;
+    margin: 0;
+}
+.work-exp .job .major-duties  span{
+    color:#777;
+    font-size: 18px;
+}
+.work-exp .job .major-duties{
+    padding: 0 20px;
+    flex: 60%;
+}
+
+/* HOBBIES */
+.hobbies{
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+}
+.hobbies .hobbie-img{
+    flex:33.33%;
+    padding: 15px;
+    position: relative;
+}
+.hobbies .hobbie-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius: 5px;
+}
+.hobbies .hobbie-img img:hover{
+    transform: skewX(25deg);
+}
+.hobbies .hobbie-img span{
+    position: absolute;
+    top:85%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height:40px;
+    padding: 0 25px;
+    line-height: 40px;
+    text-align: center;
+    border: solid 1px #000;
+    border-radius: 20px;
+    background-color: #fff;
+    color: #000;
+    font-weight: 600;
+    opacity: 0.6;
+    cursor: pointer;
+}
+.hobbies .hobbie-img span:hover{
+    background: #000;
+    color: #fff;
+    opacity: 1;
+}
