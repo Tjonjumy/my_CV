@@ -25,7 +25,18 @@ function circularText(txt, radius, classIndex) {
       classIndex.innerHTML += ea;
       origin += deg;
     });
-    console.log(txt);
   }
 
     circularText("ToTop-TuanPham-", 35, 0);
+// Scroll To Top
+console.log(document.scrollingElement.scrollTop);
+var sections=document.querySelectorAll('section[class^="content"]');
+var positionSections=[];
+Array.from(sections).forEach(function(e){
+  let position = e.scrollTop;
+  positionSections.push(position);
+});
+console.log(positionSections);
+var test=document.getElementById('education');
+console.log(test);
+

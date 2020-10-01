@@ -157,7 +157,7 @@
     color: #eee;
 }
 .main-container h2{
-    margin: 20px 0 10px;
+    margin: 20px 0;
     font-size:25px;
 }
 .main-container h3{
@@ -172,7 +172,6 @@
 
 /* ABOUT ME */
 .about-me p{
-    padding: 10px 0;
 }
 .about-me .skill{
     display: block;
@@ -344,11 +343,21 @@
     align-items: center;
     margin-bottom: 20px;
 }
+
 .contact-me .left-contact ul li div:nth-child(1){
+    display:flex;
+    align-items: center;
+    height:50px;
     font-size:50px;
-    color:#ddd;
-    text-align: center;
+    color:rgb(30, 175, 175);
     flex:30%;
+}
+.contact-me .left-contact ul li div:nth-child(1) i{
+    text-align: center;
+    width: 100%;
+}
+.contact-me .left-contact ul li div:nth-child(1) i.fa-envelope-o{
+    font-size:35px;
 }
 .contact-me .left-contact ul li div:nth-child(2){
     margin:0;
@@ -394,4 +403,22 @@ footer{
 }
 footer p{
     line-height: 50px;
+}
+
+/* LOAD WEB */
+span::before{
+    content: "3456";
+    position: absolute;
+    top:0;
+    left:0;
+    display:block;
+    width:100%;
+    height:100%;
+    background:#fff;
+    color:red;
+}
+span{
+    background-color: red;
+    display:inline-block;
+    position: relative;
 }
