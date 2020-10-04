@@ -1,18 +1,4 @@
-//Initial Intro
-// window.onload=function(){
-//   introElements=document.getElementsByClassName('intro');
-//   introElements=Array.from(introElements);
-//   console.log(introElements.length);
-//   var timeDelay=1000;
-//   for(let i=0;i< introElements.length;i++){
-//     setTimeout(function(){console.log(introElements[i]);introElements[i].style.top="0";console.log(timeDelay);},timeDelay); 
-//     timeDelay+=500;
-//   }
-//   // for(let i=0;i< introElements.length;i++){
-//   //   if()
-//   //   introElements[i].style.display="none"; 
-//   // }
-// };
+
 //Make Circle text
 function circularText(txt, radius, classIndex) {
     txt = txt.split(""),
@@ -28,6 +14,26 @@ function circularText(txt, radius, classIndex) {
   }
 
     circularText("ToTop-TuanPham-", 35, 0);
+
+// show/hide Menu Bar
+var barBtn=document.getElementById('barbtn');
+var layerMenu=document.getElementById('layerMenu');
+barBtn.addEventListener('click',showMenu);
+layerMenu.addEventListener('click',showMenu);
+function showMenu(){
+  var menu=document.getElementById('slidebar');
+  var menuLeft=window.getComputedStyle(menu).getPropertyValue('left');
+  if(menuLeft=='-200px'){
+    menu.style.left=0;
+    barBtn.classList.add('activemenu');
+    layerMenu.classList.add('show-layer');
+  }
+  else{
+    menu.style.left="-200px";
+    barBtn.classList.remove('activemenu'); 
+    layerMenu.classList.remove('show-layer');
+  }
+}
 // Scroll To Top
 console.log(document.scrollingElement.scrollTop);
 var sections=document.querySelectorAll('section[class^="content"]');

@@ -12,30 +12,8 @@
     font-family:'Times New Roman', Times, serif;
     --dvw:100%;
 }
-/* INTRO */
-.intro{
-    position: absolute;
-    width:0%;
-    height: 100vh;
-    top:0;
-    transform-origin: top;
-    /* animation: intro 1s ease-in forwards; */
-}
-.intro1{
-    background-color:green;
-    animation-delay: 1s;
-}
-.intro2{
-    background-color: cyan;
-    animation-delay: 0.5s;
-}
-.intro3{
-    background-color:black;
-}
-@keyframes intro{
-    0%{transform:scaleY(1);}
-    100%{transform: scaleY(0);}
-}
+
+
 /* SLIDERBAR MENU*/
 
 .slidebar{
@@ -45,11 +23,21 @@
     top:0;
     left: 0px;
     background:#333;
-    /* animation: slide 0.5s linear 2s both; */
+    transition: left 0.3s linear;
+    z-index:9;
 }
-@keyframes slide{
-    0%{left:-200px;}
-    100%{left:0px;}
+.layer-menu{
+    display:none;
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.8);
+    z-index: 8;
+}
+.layer-menu.show-layer{
+    display: block;
 }
 .slidebar .avatar img{
     display: block;
@@ -152,7 +140,7 @@
 .main-container{
     background: #000;
     margin: 0;
-    padding:20px 80px 0 280px;
+    padding:20px 60px 0 260px;
     width: 100%;
     color: #eee;
 }
@@ -222,18 +210,26 @@
 /* WORK EXPERIENCE */
 .work-exp .job,.education {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
+    padding: 0;
 }
 .work-exp .job .time-exp,.education .time-exp {
-    flex:40%;
+    flex:50%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
     font-size: 25px;
     font-weight: 600;
-    padding: 30px;
     text-align: center;
-    margin: 10px 0;
-    border-bottom: solid 2px #fff;
-    border-top: solid 2px #fff;
-    border-left: solid 2px #fff;
+    background:linear-gradient(to bottom, cyan,white);
+    height:110px;
+}
+.work-exp .job .major-duties,.education .major-duties{
+    padding: 0 15px;
+    flex:50%;
+    margin:10px 0;
 }
 .work-exp .job .major-duties h3,.project h3,.education .major-duties h3{
     font-size: 20px;
@@ -244,11 +240,17 @@
     color:#777;
     font-size: 18px;
 }
-.work-exp .job .major-duties,.education .major-duties{
-    padding: 0 20px;
-    flex: 60%;
+.time-exp img{
+    width: 30%;
+    height:100%;
+    object-fit: contain;
+    float:left;
 }
-
+.time-exp span{
+    width: 70%;
+    color:black;
+    text-align:center;
+}
 /* HOBBIES */
 .hobbies{
     display: flex;
@@ -333,6 +335,7 @@
 }
 .contact-me{
     display:flex;
+    flex-wrap: wrap;
 }
 .contact-me .left-contact{
     flex:50%;
@@ -406,19 +409,74 @@ footer p{
 }
 
 /* LOAD WEB */
-span::before{
-    content: "3456";
-    position: absolute;
-    top:0;
-    left:0;
-    display:block;
-    width:100%;
-    height:100%;
-    background:#fff;
-    color:red;
+
+/* RESPONSIVE */
+@media screen and (max-width:1023px){
+    .work-exp .job .time-exp,.education .time-exp {
+        flex:100%;
+    }
+    
+    .work-exp .job .major-duties,.education .major-duties{
+        flex: 100%;
+    }
 }
-span{
-    background-color: red;
-    display:inline-block;
-    position: relative;
+
+@media screen and (max-width:768px){
+    .slidebar{
+        left:-200px;
+    }
+    .main-container{
+        padding:20px 10px;
+    }
+    .bar-button{
+        display: block;
+        position: fixed;
+        top:10px;
+        left:10px;
+        color:#fff;
+        font-size:25px;
+        cursor: pointer;
+        z-index:10;
+        opacity: 0.5;
+    }
+    .bar-button:hover{
+        opacity: 1;
+    }
+    .bar-button  span{
+        display:block;
+        margin-bottom:6px;
+        height:4px;
+        width:32px;
+        background-color: #fff;
+        transition: transform 0.3s linear;
+    }
+    .bar-button.activemenu .bar2{
+        transform: translateX(-50px);
+    }
+    .bar-button.activemenu .bar1{
+        transform: rotate(45deg) rotateY(180deg) translate(-7px,7px);
+    }
+    .bar-button.activemenu .bar3{
+        transform: rotate(-45deg) rotateY(180deg) translate(-7px,-7px);
+    }
+    .hobbies .hobbie-img span{
+        width:50%;
+        padding:0px 10px;
+        font-size:15px;
+        line-height:25px;
+        height:25px;
+    }
+}
+@media screen and (max-width:640px){`
+    .hobbies .hobbie-img{
+        flex:50%;
+        padding: 5px;
+    }
+    .hobbies .hobbie-img span{
+        width:60%;
+        font-size:13px;
+    }
+    .contact-me .left-contact,.contact-me .social-link{
+        flex: 100%;
+    }
 }
