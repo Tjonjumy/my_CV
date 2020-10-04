@@ -83,7 +83,7 @@
     height: 72px;
     border-radius:50%;
     background-color:#fff;
-    opacity: 0.6;
+    opacity: 0.4;
 }
 .to-top::after{
     content: "Scroll To Top";
@@ -161,6 +161,9 @@
 /* ABOUT ME */
 .about-me p{
 }
+.about-me .my-skill{
+    margin-bottom: 10px;
+}
 .about-me .skill{
     display: block;
     width: 100%;
@@ -173,7 +176,7 @@
     content: "";
     height: 100%;
     border-radius: 10px;
-    background:linear-gradient(to right,cyan,lightblue);
+    background:lightgreen;
 }
 .about-me .html::after,.css::after,.js::after{
     width: 50%;
@@ -467,7 +470,7 @@ footer p{
         height:25px;
     }
 }
-@media screen and (max-width:640px){`
+@media screen and (max-width:640px){
     .hobbies .hobbie-img{
         flex:50%;
         padding: 5px;
@@ -478,5 +481,18 @@ footer p{
     }
     .contact-me .left-contact,.contact-me .social-link{
         flex: 100%;
+    }
+    /* Text Responsive */
+    .main-container h2{
+        font-size:18px;
+    }
+    .content p,.content h3{
+        font-size: 13px;
+        line-height: initial;
+    }
+    .about-me .download-cv button{
+        font-size:13px;
+        line-height: 20px;
+        padding: 0 10px;
     }
 }
