@@ -35,25 +35,25 @@ function showMenu(){
   }
 }
 //Close Menu when Select from Menu on mobile
-var liItems=document.querySelectorAll('.slidebar-menu ul li');
+var liItems=document.querySelectorAll('.slidebar-menu ul li a');
 console.log(liItems);
 var liItemsArr=Array.from(liItems);
-for(let i=0;i<liItemsArr.length;i++){
+const liItemsArrL=liItemsArr.length;
+for(let i=0;i<liItemsArrL;i++){
   if(window.innerWidth<=768){
     liItemsArr[i].addEventListener('click',showMenu);
   }
   liItemsArr[i].addEventListener('click',function(){toElmMenu(i)});
- 
 }
 
-// Scroll to element of Menu 
+// Scroll to an item of Menu 
 var contents=document.querySelectorAll('section.content');
-console.log(contents);
+//console.log(contents);
 var contentsOffsetTop=[];
 Array.from(contents).forEach((content)=>{
   contentsOffsetTop.push(content.offsetTop);
 });
-
+console.log(contentsOffsetTop);
 function toElmMenu(liElement){
   window.innerWidth<=768 ? document.documentElement.scrollTop=contentsOffsetTop[liElement]-35 :
   document.documentElement.scrollTop=contentsOffsetTop[liElement]-20;
@@ -66,6 +66,7 @@ topTop.addEventListener('mouseover',()=>{
 });
 var deg=0;
 window.onscroll=function(){
+  //Rotate toTop
   if(document.body.scrollTop>=20||document.documentElement.scrollTop>=20){
     topTop.style.opacity=0.6;
     deg=document.documentElement.scrollTop ? document.documentElement.scrollTop/5 : document.body.scrollTop/5;
@@ -74,10 +75,32 @@ window.onscroll=function(){
   else{
     topTop.style.opacity=0;
   }
+  //Add active class for menu item
+  for(let i=0;i<liItemsArrL-1;i++){
+    if(document.documentElement.scrollTop<contentsOffsetTop[i+1]-100
+      && document.documentElement.scrollTop>=contentsOffsetTop[i]-100){
+      liItemsArr[i].classList.add('active');
+    }
+    else{
+      liItemsArr[i].classList.remove('active');
+    }
+  }
+  if(document.documentElement.offsetHeight<=window.innerHeight+document.documentElement.scrollTop){
+    liItemsArr[liItemsArrL-1].classList.add('active');
+    liItemsArr[liItemsArrL-2].classList.remove('active');
+  }
+  else{
+    liItemsArr[liItemsArrL-1].classList.remove('active'); 
+  }
+  console.log(document.documentElement.offsetHeight-window.innerHeight-document.documentElement.scrollTop);
 };
 function topFunction(){
   document.body.scrollTop=0; // For Safari
   document.documentElement.scrollTop=0; // For Chrome, Firefox, IE and Opera
 }
-
+window.onload=()=>{
+  if(document.documentElement.scrollTop<contentsOffsetTop[1]){
+    liItemsArr[0].classList.add('active');
+  }
+};
 

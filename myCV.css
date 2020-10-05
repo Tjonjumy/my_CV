@@ -71,7 +71,13 @@
 .slidebar-menu ul li a:hover::before{
     right: 0;
 }
-
+/* active menu when scroll*/
+.slidebar-menu ul li a.active{
+    color:cyan;
+}
+.slidebar-menu ul li a.active::before{
+    right: 0;
+}
 /* SCROLL TO TOP */
 .to-top{
     position: fixed;
@@ -294,6 +300,7 @@
 .mypoject span{
     display: inline-block;
     font-size: 30px;
+    white-space: nowrap;
     font-weight: 600;
     position: absolute;
     top:50%;
@@ -488,6 +495,9 @@ footer p{
     }
     .time-exp span{
         font-size:20px;
+    }
+    .mypoject span{
+       font-size:20px; 
     }
     
 }
