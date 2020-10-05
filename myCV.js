@@ -37,12 +37,14 @@ function showMenu(){
 //Close Menu when Select from Menu on mobile
 var liItems=document.querySelectorAll('.slidebar-menu ul li');
 console.log(liItems);
-Array.from(liItems).forEach(function(li){
+var liItemsArr=Array.from(liItems);
+for(let i=0;i<liItemsArr.length;i++){
   if(window.innerWidth<=768){
-    li.addEventListener('click',showMenu);
+    liItemsArr[i].addEventListener('click',showMenu);
   }
-  li.addEventListener('click',toElmMenu);
-});
+  liItemsArr[i].addEventListener('click',function(){toElmMenu(i)});
+ 
+}
 
 // Scroll to element of Menu 
 var contents=document.querySelectorAll('section.content');
@@ -51,9 +53,10 @@ var contentsOffsetTop=[];
 Array.from(contents).forEach((content)=>{
   contentsOffsetTop.push(content.offsetTop);
 });
-console.log(contentsOffsetTop);
+
 function toElmMenu(liElement){
-  console.log(liElement);
+  window.innerWidth<=768 ? document.documentElement.scrollTop=contentsOffsetTop[liElement]-35 :
+  document.documentElement.scrollTop=contentsOffsetTop[liElement]-20;
 }
 // Scroll To Top
 var topTop=document.getElementById('to-top');

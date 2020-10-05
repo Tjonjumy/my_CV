@@ -8,7 +8,6 @@
 }
 :root{
     scroll-behavior: smooth;
-    scroll-padding: 35px;
     font-family:'Times New Roman', Times, serif;
     --dvw:100%;
 }
@@ -52,6 +51,7 @@
     font-size: 20px;
     letter-spacing: 3px;
     padding: 15px;
+    cursor: pointer;
 }
 .slidebar-menu ul li a::before{
     content: "";
