@@ -34,15 +34,47 @@ function showMenu(){
     layerMenu.classList.remove('show-layer');
   }
 }
-// Scroll To Top
-console.log(document.scrollingElement.scrollTop);
-var sections=document.querySelectorAll('section[class^="content"]');
-var positionSections=[];
-Array.from(sections).forEach(function(e){
-  let position = e.scrollTop;
-  positionSections.push(position);
+//Close Menu when Select from Menu on mobile
+var liItems=document.querySelectorAll('.slidebar-menu ul li');
+console.log(liItems);
+Array.from(liItems).forEach(function(li){
+  if(window.innerWidth<=768){
+    li.addEventListener('click',showMenu);
+  }
+  li.addEventListener('click',toElmMenu);
 });
-console.log(positionSections);
-var test=document.getElementById('education');
-console.log(test);
+
+// Scroll to element of Menu 
+var contents=document.querySelectorAll('section.content');
+console.log(contents);
+var contentsOffsetTop=[];
+Array.from(contents).forEach((content)=>{
+  contentsOffsetTop.push(content.offsetTop);
+});
+console.log(contentsOffsetTop);
+function toElmMenu(liElement){
+  console.log(liElement);
+}
+// Scroll To Top
+var topTop=document.getElementById('to-top');
+topTop.addEventListener('click',topFunction);
+topTop.addEventListener('mouseover',()=>{
+  topTop.style.opacity=1;
+});
+var deg=0;
+window.onscroll=function(){
+  if(document.body.scrollTop>=20||document.documentElement.scrollTop>=20){
+    topTop.style.opacity=0.6;
+    deg=document.documentElement.scrollTop ? document.documentElement.scrollTop/5 : document.body.scrollTop/5;
+    topTop.style.transform=`rotate(${deg}deg)`;
+  }
+  else{
+    topTop.style.opacity=0;
+  }
+};
+function topFunction(){
+  document.body.scrollTop=0; // For Safari
+  document.documentElement.scrollTop=0; // For Chrome, Firefox, IE and Opera
+}
+
 

@@ -8,7 +8,7 @@
 }
 :root{
     scroll-behavior: smooth;
-    scroll-padding: 30px;
+    scroll-padding: 35px;
     font-family:'Times New Roman', Times, serif;
     --dvw:100%;
 }
@@ -83,31 +83,14 @@
     height: 72px;
     border-radius:50%;
     background-color:#fff;
-    opacity: 0.4;
-}
-.to-top::after{
-    content: "Scroll To Top";
-    color: blue;
-    position: absolute;
-    top:-30%;
-    right:90%;
-    display: block;
-    width: 150%;
-    padding: 5px;
-    border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border: 1px solid #000;
-    color: #000;
-    background-color: #fff;
-    display: none;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
 }
 .to-top:hover{
     opacity: 1;
 }
-.to-top:hover::after{
-    display: block;
-}
+
 .to-top .circTxt {
     /*allows for centering*/
     display: inline-block;
@@ -115,7 +98,6 @@
     margin-bottom: 70px;
   }
 .to-top .circTxt p{
-    background:;
     color: #000;
     font-size: 10px;
   }
@@ -151,7 +133,7 @@
 .main-container h3{
     margin: 10px 0;
 }
-.content p,h3{
+.content p,.content h3{
     font-size: 18px;
     line-height: 25px;
 }
@@ -223,8 +205,6 @@
     justify-content: flex-start;
     align-items: center;
     position: relative;
-    font-size: 25px;
-    font-weight: 600;
     text-align: center;
     background:linear-gradient(to bottom, cyan,white);
     height:110px;
@@ -235,7 +215,6 @@
     margin:10px 0;
 }
 .work-exp .job .major-duties h3,.project h3,.education .major-duties h3{
-    font-size: 20px;
     color: cyan;
     margin: 0;
 }
@@ -253,6 +232,8 @@
     width: 70%;
     color:black;
     text-align:center;
+    font-size: 25px;
+    font-weight: 600;
 }
 /* HOBBIES */
 .hobbies{
@@ -261,25 +242,28 @@
     width: 100%;
 }
 .hobbies .hobbie-img{
-    flex:33.33%;
-    padding: 15px;
+    width:33.33%;
+    padding-top:33.33%;
     position: relative;
 }
 .hobbies .hobbie-img img{
-    width:100%;
-    height:100%;
+    position: absolute;
+    top:15px;
+    left:15px;
+    right:15px;
+    bottom:15px;
+    width:90%;
+    height:90%;
     object-fit:cover;
     border-radius: 5px;
-    transition: transform 0.5s linear;
 }
 .hobbies .hobbie-img span{
     position: absolute;
     top:85%;
     left: 50%;
     transform: translate(-50%,-50%);
-    height:40px;
-    padding: 0 25px;
-    line-height: 40px;
+    white-space:nowrap;
+    padding: 5px 10px;
     text-align: center;
     border: solid 1px #000;
     border-radius: 20px;
@@ -370,7 +354,6 @@
     flex:70%;
 }
 .contact-me .left-contact ul li div:nth-child(2) h3{
-    font-size:20px;
     margin:0;
 }
 .contact-me .left-contact ul li:hover p{
@@ -450,11 +433,12 @@ footer p{
         margin-bottom:6px;
         height:4px;
         width:32px;
-        background-color: #fff;
+        background-color:cyan;
         transition: transform 0.3s linear;
     }
     .bar-button.activemenu .bar2{
         transform: translateX(-50px);
+        opacity: 0;
     }
     .bar-button.activemenu .bar1{
         transform: rotate(45deg) rotateY(180deg) translate(-7px,7px);
@@ -463,24 +447,25 @@ footer p{
         transform: rotate(-45deg) rotateY(180deg) translate(-7px,-7px);
     }
     .hobbies .hobbie-img span{
-        width:50%;
-        padding:0px 10px;
         font-size:15px;
-        line-height:25px;
-        height:25px;
     }
 }
 @media screen and (max-width:640px){
     .hobbies .hobbie-img{
-        flex:50%;
-        padding: 5px;
+        width:50%;
+        padding-top:50%;
     }
     .hobbies .hobbie-img span{
-        width:60%;
         font-size:13px;
     }
     .contact-me .left-contact,.contact-me .social-link{
         flex: 100%;
+    }
+    .contact-me .left-contact ul li div:nth-child(1){
+        font-size:40px;
+    }
+    .contact-me .left-contact ul li div:nth-child(1) i.fa-envelope-o {
+        font-size: 25px;
     }
     /* Text Responsive */
     .main-container h2{
@@ -495,4 +480,14 @@ footer p{
         line-height: 20px;
         padding: 0 10px;
     }
+    .mypoject span{
+        font-size:20px;
+    }
+    .work-exp .job .major-duties  span,.education .major-duties span{
+        font-size: 13px;
+    }
+    .time-exp span{
+        font-size:20px;
+    }
+    
 }
