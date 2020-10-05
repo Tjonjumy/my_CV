@@ -252,6 +252,85 @@
     padding-top:33.33%;
     position: relative;
 }
+
+.content.loadweb .hobbies .hobbie-img:nth-child(3n+2){
+    transform: translateY(300px);
+    animation: imgUp 1s ease-in-out forwards;
+}
+.content.loadweb .hobbies .hobbie-img:nth-child(3n+1){
+    transform: translateX(-300px);
+    animation: imgRight 1s ease-in-out forwards;
+}
+.content.loadweb .hobbies .hobbie-img:nth-child(3n+3){
+    transform: translateX(300px);
+    animation: imgLeft 1s ease-in-out forwards;
+}
+.content.loadweb .hobbies .hobbie-img:nth-child(n+4){
+    animation-delay:0.5s;
+}
+@keyframes imgUp {
+    0% {
+        transform: translateY(300px);
+        opacity: 0;
+        visibility: hidden;
+    }
+    30% {
+        transform: translateY(-50px);
+        opacity: 1;
+        visibility: visible;
+    }
+    50% {
+        transform: translateY(20px);
+    }
+    75% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+@keyframes imgRight {
+    0% {
+        transform: translateX(-300px);
+        opacity: 0;
+        visibility: hidden;
+    }
+    30% {
+        transform: translateX(-50px);
+        opacity: 1;
+        visibility: visible;
+    }
+    50% {
+        transform: translateX(20px);
+    }
+    75% {
+        transform: translateX(-10px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+@keyframes imgLeft {
+    0% {
+        transform: translateX(300px);
+        opacity: 0;
+        visibility: hidden;
+    }
+    30% {
+        transform: translateX(50px);
+        opacity: 1;
+        visibility: visible;
+    }
+    50% {
+        transform: translateX(-20px);
+    }
+    75% {
+        transform: translateX(10px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
 .hobbies .hobbie-img img{
     position: absolute;
     top:15px;
@@ -296,7 +375,13 @@
     width: 100%;
     height: auto;
     border:1px solid #fff;
+    transform: perspective(1000px) rotateX(90deg);
+    transition: 0.7s ease-in-out;
 }
+.content.loadweb .mypoject img{
+    transform: perspective(1000px) rotate(0);
+}
+
 .mypoject span{
     display: inline-block;
     font-size: 30px;
@@ -373,7 +458,7 @@
     flex:50%;
     display: flex;
     flex-direction:column ;
-    justify-content: flex-start;
+    justify-content: center;
 }
 .contact-me .social-link div{
     width: 100%;

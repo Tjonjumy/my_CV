@@ -48,9 +48,10 @@ for(let i=0;i<liItemsArrL;i++){
 
 // Scroll to an item of Menu 
 var contents=document.querySelectorAll('section.content');
+var contentsArr=Array.from(contents);
 //console.log(contents);
 var contentsOffsetTop=[];
-Array.from(contents).forEach((content)=>{
+contentsArr.forEach((content)=>{
   contentsOffsetTop.push(content.offsetTop);
 });
 console.log(contentsOffsetTop);
@@ -80,6 +81,7 @@ window.onscroll=function(){
     if(document.documentElement.scrollTop<contentsOffsetTop[i+1]-100
       && document.documentElement.scrollTop>=contentsOffsetTop[i]-100){
       liItemsArr[i].classList.add('active');
+      contentsArr[i].classList.add('loadweb');
     }
     else{
       liItemsArr[i].classList.remove('active');
