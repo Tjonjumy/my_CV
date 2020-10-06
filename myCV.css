@@ -507,12 +507,9 @@ footer p{
         padding:20px 10px;
     }
     .bar-button{
-        display: block;
         position: fixed;
         top:10px;
         left:10px;
-        color:#fff;
-        font-size:25px;
         cursor: pointer;
         z-index:10;
         opacity: 0.5;
