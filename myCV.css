@@ -152,28 +152,30 @@
 .about-me .my-skill{
     margin-bottom: 10px;
 }
-.about-me .skill{
+.content .skill{
     display: block;
     width: 100%;
     height: 20px;
     background-color: #fff;
     border-radius: 10px;
 }
-.about-me .skill::after{
+.content .skill::after{
     display: block;
     content: "";
     height: 100%;
+    width:20px;
     border-radius: 10px;
     background:lightgreen;
+    transition:width 1s ease-in-out;
 }
-.about-me .html::after,.css::after,.js::after{
+.content.loadweb .html::after,.content.loadweb .css::after{
     width: 50%;
 }
-.about-me .js::after{
+.content.loadweb .js::after{
     width: 60%;
 }
-.about-me .ai::after{
-    width: 30%;
+.content.loadweb .ai::after{
+    width: 35%;
 }
 .about-me .download-cv{
     display: block;
@@ -258,11 +260,11 @@
     animation: imgUp 1s ease-in-out forwards;
 }
 .content.loadweb .hobbies .hobbie-img:nth-child(3n+1){
-    transform: translateX(-300px);
+    transform: translateX(px);
     animation: imgRight 1s ease-in-out forwards;
 }
 .content.loadweb .hobbies .hobbie-img:nth-child(3n+3){
-    transform: translateX(300px);
+    transform: translateX(px);
     animation: imgLeft 1s ease-in-out forwards;
 }
 .content.loadweb .hobbies .hobbie-img:nth-child(n+4){

@@ -81,11 +81,14 @@ window.onscroll=function(){
     if(document.documentElement.scrollTop<contentsOffsetTop[i+1]-100
       && document.documentElement.scrollTop>=contentsOffsetTop[i]-100){
       liItemsArr[i].classList.add('active');
-      contentsArr[i].classList.add('loadweb');
     }
     else{
       liItemsArr[i].classList.remove('active');
     }
+    if(document.documentElement.scrollTop<contentsOffsetTop[i+1]
+      && document.documentElement.scrollTop>=contentsOffsetTop[i]-300){
+        contentsArr[i].classList.add('loadweb');
+      }
   }
   if(document.documentElement.offsetHeight<=window.innerHeight+document.documentElement.scrollTop){
     liItemsArr[liItemsArrL-1].classList.add('active');
@@ -94,7 +97,8 @@ window.onscroll=function(){
   else{
     liItemsArr[liItemsArrL-1].classList.remove('active'); 
   }
-  console.log(document.documentElement.offsetHeight-window.innerHeight-document.documentElement.scrollTop);
+  console.log(document.documentElement.scrollTop);
+  //console.log(document.documentElement.offsetHeight-window.innerHeight-document.documentElement.scrollTop);
 };
 function topFunction(){
   document.body.scrollTop=0; // For Safari
