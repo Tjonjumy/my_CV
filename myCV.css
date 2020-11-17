@@ -24,6 +24,7 @@
     background:#333;
     transition: left 0.3s linear;
     z-index:9;
+    overflow-y: scroll;
 }
 .layer-menu{
     display:none;
