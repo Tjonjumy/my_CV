@@ -36,7 +36,7 @@ function showMenu(){
 }
 //Close Menu when Select from Menu on mobile
 var liItems=document.querySelectorAll('.slidebar-menu ul li a');
-console.log(liItems);
+//console.log(liItems);
 var liItemsArr=Array.from(liItems);
 const liItemsArrL=liItemsArr.length;
 for(let i=0;i<liItemsArrL;i++){
@@ -54,7 +54,7 @@ var contentsOffsetTop=[];
 contentsArr.forEach((content)=>{
   contentsOffsetTop.push(content.offsetTop);
 });
-console.log(contentsOffsetTop);
+//console.log(contentsOffsetTop);
 function toElmMenu(liElement){
   window.innerWidth<=768 ? document.documentElement.scrollTop=contentsOffsetTop[liElement]-35 :
   document.documentElement.scrollTop=contentsOffsetTop[liElement]-20;
@@ -97,7 +97,7 @@ window.onscroll=function(){
   else{
     liItemsArr[liItemsArrL-1].classList.remove('active'); 
   }
-  console.log(document.documentElement.scrollTop);
+  //console.log(document.documentElement.scrollTop);
   //console.log(document.documentElement.offsetHeight-window.innerHeight-document.documentElement.scrollTop);
 };
 function topFunction(){
