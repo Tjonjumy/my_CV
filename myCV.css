@@ -24,7 +24,6 @@
     background:#333;
     transition: left 0.3s linear;
     z-index:9;
-    overflow-y: scroll;
 }
 .layer-menu{
     display:none;
@@ -505,6 +504,7 @@ footer p{
 @media screen and (max-width:768px){
     .slidebar{
         left:-200px;
+        overflow-y: scroll;
     }
     .main-container{
         padding:20px 10px;
