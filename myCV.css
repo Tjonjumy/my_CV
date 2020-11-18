@@ -501,7 +501,11 @@ footer p{
         flex: 100%;
     }
 }
-
+@media screen and (max-width:992px) and (min-width:768px){
+    .slidebar{
+        overflow-y: scroll;
+    }
+}
 @media screen and (max-width:768px){
     .slidebar{
         left:-200px;
