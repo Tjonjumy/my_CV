@@ -131,6 +131,7 @@
     padding:20px 60px 0 260px;
     width: 100%;
     color: #eee;
+    overflow: hidden;
 }
 .main-container h2{
     margin: 20px 0;
